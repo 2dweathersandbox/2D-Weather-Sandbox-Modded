@@ -21,13 +21,13 @@ function updateSetupSliders()
   document.getElementById('simWorldProperties').innerHTML = 'cellHeight: ' + cellHeight.toFixed(1) + ' m  &nbsp&nbsp&nbsp   Simulation width: ' + (simWidth / 1000).toFixed(1) + ' km';
 
   document.getElementById("simHeightWarning").style.display = (simHeight == 120000) ? 'none' : 'block';
-  document.getElementById("simResYWarning").style.display = (simResY == 300) ? 'none' : 'block';
+  document.getElementById("simResYWarning").style.display = (simResY == 3000) ? 'none' : 'block';
   document.getElementById("simResShowX").value = simResX;
   document.getElementById("simResShowY").value = simResY
   document.getElementById("simHeightShow").value = simHeight + ' m';
 }
 
-var FPS = 60.0;
+var FPS = 600.0;
 
 var canvas;
 var gl;
@@ -36,7 +36,7 @@ var clockEl;
 
 var simDateTime;
 
-var SETUP_MODE = false;
+var SETUP_MODE = true;
 
 var loadingBar;
 var cam;
@@ -56,27 +56,27 @@ const guiControls_default = {
   wind : -0.0001,
   globalEffectsHeight : 10000,
   globalDrying : 0.000003, // 01
-  globalHeating : 0.001,
+  globalHeating : 1,
   sunIntensity : 2.0,
-  waterTemperature : 25.0, // °C
-  landEvaporation : 0.0005,
-  waterEvaporation : 0.001,
+  waterTemperature : 250, // °C
+  landEvaporation : 5,
+  waterEvaporation : 10,
   evapHeat 10,          //  Real: 2260 J/g
   meltingHeat : 0.43,       //  Real:  334 J/g
   waterWeight : 0.50,       // 0.50
   inactiveDroplets : 0,
-  aboveZeroThreshold : 1.0, // PRECIPITATION
-  subZeroThreshold : 0.005, // 0.01
-  spawnChance : 0.00005,    // 30. 10 to 50
+  aboveZeroThreshold : 0, // PRECIPITATION
+  subZeroThreshold : 0.000, // 0.00
+  spawnChance : 5,    // 30. 10 to 50
   snowDensity : 0.2,        // 0.3
-  fallSpeed : 0.0003,
-  growthRate0C : 0.0001,    // 0.0005
-  growthRate_30C : 0.001,   // 0.01
+  fallSpeed : 3,
+  growthRate0C : 1,    // 0.0005
+  growthRate_30C : 1,   // 0.01
   freezingRate : 0.01,
   meltingRate : 0.01,
-  evapRate : 0.0008, // 0.0005
+  evapRate : 0.0000, // 0.0001
   displayMode : 'DISP_REAL',
-  wrapHorizontally : true,
+  wrapHorizontally : false,
   SmoothCam : false,
   camSpeed : 0.01,
   exposure : 1.0,
@@ -91,7 +91,7 @@ const guiControls_default = {
   tool : 'TOOL_NONE',
   brushSize : 20,
   wholeWidth : false,
-  intensity : 0.01,
+  intensity : 1,
   showGraph : false,
   realDewPoint : true, // show real dew point in graph, instead of dew point with cloud water included
   enablePrecipitation : true,
@@ -132,7 +132,7 @@ var datGui;
 var sim_res_x;
 var sim_res_y;
 var sim_aspect; //  = sim_res_x / sim_res_y
-var sim_height = 12000;
+var sim_height = 120000;
 
 var cellHeight = 0; // guiControls.simHeight / sim_res_y;  // in meters // cell width is the same
 
