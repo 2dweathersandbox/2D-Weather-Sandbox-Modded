@@ -58,6 +58,6 @@ void main()
     // dragMultiplier; base[1] -= base[1] * base[1] * base[1] * base[1] *
     // base[1] * dragMultiplier;
 
-    base[0] += wind * 0.000001;
+    base[0] += wind * 0.0001;
   }
 }
