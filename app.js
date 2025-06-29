@@ -20,7 +20,7 @@ function updateSetupSliders()
 
   document.getElementById('simWorldProperties').innerHTML = 'cellHeight: ' + cellHeight.toFixed(1) + ' m  &nbsp&nbsp&nbsp   Simulation width: ' + (simWidth / 1000).toFixed(1) + ' km';
 
-  document.getElementById("simHeightWarning").style.display = (simHeight == 12000) ? 'none' : 'block';
+  document.getElementById("simHeightWarning").style.display = (simHeight == 120000) ? 'none' : 'block';
   document.getElementById("simResYWarning").style.display = (simResY == 300) ? 'none' : 'block';
   document.getElementById("simResShowX").value = simResX;
   document.getElementById("simResShowY").value = simResY
@@ -55,13 +55,13 @@ const guiControls_default = {
   dragMultiplier : 0.01, // 0.1
   wind : -0.0001,
   globalEffectsHeight : 10000,
-  globalDrying : 0.000003, // 0.000010
-  globalHeating : 0.0,
-  sunIntensity : 1.0,
+  globalDrying : 0.000003, // 01
+  globalHeating : 0.001,
+  sunIntensity : 2.0,
   waterTemperature : 25.0, // °C
-  landEvaporation : 0.00005,
-  waterEvaporation : 0.0001,
-  evapHeat : 2.90,          //  Real: 2260 J/g
+  landEvaporation : 0.0005,
+  waterEvaporation : 0.001,
+  evapHeat 10,          //  Real: 2260 J/g
   meltingHeat : 0.43,       //  Real:  334 J/g
   waterWeight : 0.50,       // 0.50
   inactiveDroplets : 0,
@@ -77,7 +77,7 @@ const guiControls_default = {
   evapRate : 0.0008, // 0.0005
   displayMode : 'DISP_REAL',
   wrapHorizontally : true,
-  SmoothCam : true,
+  SmoothCam : false,
   camSpeed : 0.01,
   exposure : 1.0,
   timeOfDay : 9.9,
@@ -95,13 +95,13 @@ const guiControls_default = {
   showGraph : false,
   realDewPoint : true, // show real dew point in graph, instead of dew point with cloud water included
   enablePrecipitation : true,
-  showDrops : false,
+  showDrops : true,
   paused : false,
   IterPerFrame : 10,
-  auto_IterPerFrame : true,
+  auto_IterPerFrame : false,
   sound : true,
   dryLapseRate : 10.0,     // Real: 9.8 degrees / km
-  simHeight : 12000,       // meters
+  simHeight : 120000,       // meters
   twelveHourClock : false, // only for display.  false = metric
   lengthUnit : 'LENGTH_UNIT_METRIC',
   tempUnit : 'TEMP_UNIT_C',
