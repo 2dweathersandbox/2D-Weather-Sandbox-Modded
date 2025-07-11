@@ -1,7 +1,7 @@
 #version 300 es
 precision mediump float;
-precision highp sampler2D;
-precision highp isampler2D;
+precision mediump sampler2D;
+precision mediumhp isampler2D;
 
 in vec2 fragCoord;
 in vec2 texCoord;     // this
