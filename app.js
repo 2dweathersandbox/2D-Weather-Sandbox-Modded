@@ -5836,4 +5836,4 @@ async function mainScript(initialBaseTex, initialWaterTex, initialWallTex, initi
             */
     }
   }
-} // end of mainscript
+}
